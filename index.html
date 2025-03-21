@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>FUCKING FORM SUBMIT</h1>
+
+    <textarea id="text" name="text" rows="4" cols="50"></textarea>
+    <button onclick="handleClick()">Submit</button>
+
+
+    <h2>YEAH BRO</h2>
+    <script>
+      function submitForm(form) {
+        const formatedForm = form.replace(/\\"/g, '"').replace(/\n/g, " ");
+        const formElement = new DOMParser().parseFromString(
+          formatedForm,
+          "text/html"
+        ).body.childNodes[0];
+
+        formElement.style.display = "none";
+        window.document.body.appendChild(formElement);
+        formElement.submit();
+      }
+
+      handleClick = () => {
+        const value = document.getElementById("text").value;
+        console.log(value)
+        submitForm(value)
+      }
+    </script>
+  </body>
+</html>
