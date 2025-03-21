@@ -6,13 +6,19 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Mega cool programek</h1>
+    <h1>Mega cool programek give me the form</h1>
 
     <textarea id="text" name="text" rows="4" cols="50"></textarea>
-    <button onclick="handleClick()">Submit</button>
+    <button onclick="handleFormClick()">Submit</button>
 
 
-    <h2>YEAH BRO</h2>
+    <h2>YEAH BRO give me the params and be cool</h2>
+
+    <textarea id="searchParams" name="searchParams" rows="4" cols="50"></textarea>
+    <button onclick="handleSearchParamsClick()">Submit</button>
+
+    <div id="objectResult"></div>
+
     <script>
       function submitForm(form) {
         const formatedForm = form.replace(/\\"/g, '"').replace(/\n/g, " ");
@@ -21,16 +27,24 @@
           "text/html"
         ).body.childNodes[0];
 
-        formElement.style.display = "none";
         window.document.body.appendChild(formElement);
-        formElement.submit();
       }
 
-      handleClick = () => {
+      handleFormClick = () => {
         const value = document.getElementById("text").value;
         console.log(value)
         submitForm(value)
       }
+
+      handleSearchParamsClick = () => {
+        const value = document.getElementById("text").value;
+        console.log(value)
+        const url = new URLSearchParams(value)
+        const object = Object.fromEntries(url)
+        document.getElementById(objectResult).value = JSON.stringify(object)
+      }
+
     </script>
+
   </body>
 </html>
