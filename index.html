@@ -37,11 +37,11 @@
       }
 
       handleSearchParamsClick = () => {
-        const value = document.getElementById("text").value;
+        const value = document.getElementById("searchParams").value;
         console.log(value)
         const url = new URLSearchParams(value)
         const object = Object.fromEntries(url)
-        document.getElementById("objectResult").value = JSON.stringify(object)
+        document.getElementById("objectResult").innerHTML = JSON.stringify(object)
       }
 
     </script>
